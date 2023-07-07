@@ -15162,7 +15162,7 @@ We can import pandas by typing: import pandas as pd</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Now let us use a CSV file that was created for this exercise named Pandas_intro_university_rankings.csv.  The file lists top 10 universities and their scores. We will use the <em>read_csv</em> function to load a csv file into a format called <em>DataFrame</em>. Pandas uses a Data Structure called a DataFrame to hold this data. A DataFrame allows us to store “relational” or “tabular” data, and gives us many in-built functions in order to manipulate the data.</p>
+<p>Now let us use a CSV file that was downloaded from the Kaggle dataset: 2022_rankings.csv. This file lists top universities in 2022. We will use the <em>read_csv</em> function to load a csv file into a format called <em>DataFrame</em>. Pandas uses a Data Structure called a DataFrame to hold this data. A DataFrame allows us to store “relational” or “tabular” data, and gives us many in-built functions in order to manipulate the data.</p>
 
 </div>
 </div>
@@ -15175,7 +15175,7 @@ We can import pandas by typing: import pandas as pd</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../dataset/Pandas_intro_university_rankings.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../dataset/2022_rankings.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15242,74 +15242,297 @@ We can import pandas by typing: import pandas as pd</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>rank_order</th>
       <th>rank</th>
       <th>name</th>
       <th>scores_overall</th>
+      <th>scores_overall_rank</th>
+      <th>scores_teaching</th>
+      <th>scores_teaching_rank</th>
+      <th>scores_research</th>
+      <th>scores_research_rank</th>
+      <th>scores_citations</th>
+      <th>...</th>
+      <th>scores_international_outlook_rank</th>
+      <th>location</th>
+      <th>stats_number_students</th>
+      <th>stats_student_staff_ratio</th>
+      <th>stats_pc_intl_students</th>
+      <th>stats_female_male_ratio</th>
+      <th>aliases</th>
+      <th>subjects_offered</th>
+      <th>closed</th>
+      <th>unaccredited</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>10</td>
       <td>1</td>
       <td>University of Oxford</td>
-      <td>96.4</td>
+      <td>95.7</td>
+      <td>10</td>
+      <td>91.0</td>
+      <td>5</td>
+      <td>99.6</td>
+      <td>1</td>
+      <td>98.0</td>
+      <td>...</td>
+      <td>26</td>
+      <td>United Kingdom</td>
+      <td>20,835</td>
+      <td>10.7</td>
+      <td>42%</td>
+      <td>47 : 53</td>
+      <td>University of Oxford</td>
+      <td>Accounting &amp; Finance,General Engineering,Commu...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>20</td>
+      <td>=2</td>
+      <td>California Institute of Technology</td>
+      <td>95.0</td>
+      <td>20</td>
+      <td>93.6</td>
       <td>2</td>
-      <td>Harvard University</td>
-      <td>95.2</td>
+      <td>96.9</td>
+      <td>4</td>
+      <td>97.8</td>
+      <td>...</td>
+      <td>167</td>
+      <td>United States</td>
+      <td>2,233</td>
+      <td>6.3</td>
+      <td>34%</td>
+      <td>36 : 64</td>
+      <td>California Institute of Technology caltech</td>
+      <td>Languages, Literature &amp; Linguistics,Economics ...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>30</td>
+      <td>=2</td>
+      <td>Harvard University</td>
+      <td>95.0</td>
+      <td>30</td>
+      <td>94.5</td>
+      <td>1</td>
+      <td>98.9</td>
       <td>3</td>
-      <td>University of Cambridge</td>
-      <td>94.8</td>
+      <td>99.2</td>
+      <td>...</td>
+      <td>209</td>
+      <td>United States</td>
+      <td>21,574</td>
+      <td>9.5</td>
+      <td>24%</td>
+      <td>50 : 50</td>
+      <td>Harvard University</td>
+      <td>Mathematics &amp; Statistics,Civil Engineering,Lan...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
+      <td>40</td>
+      <td>4</td>
       <td>Stanford University</td>
-      <td>94.8</td>
+      <td>94.9</td>
+      <td>40</td>
+      <td>92.3</td>
+      <td>3</td>
+      <td>96.8</td>
+      <td>5</td>
+      <td>99.9</td>
+      <td>...</td>
+      <td>211</td>
+      <td>United States</td>
+      <td>16,319</td>
+      <td>7.3</td>
+      <td>23%</td>
+      <td>46 : 54</td>
+      <td>Stanford University</td>
+      <td>Physics &amp; Astronomy,Computer Science,Politics ...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5</td>
-      <td>Massachusetts Institute of Technology</td>
-      <td>94.2</td>
-    </tr>
-    <tr>
-      <th>5</th>
+      <td>50</td>
+      <td>=5</td>
+      <td>University of Cambridge</td>
+      <td>94.6</td>
+      <td>50</td>
+      <td>90.9</td>
       <td>6</td>
-      <td>California Institute of Technology</td>
-      <td>94.1</td>
+      <td>99.5</td>
+      <td>2</td>
+      <td>96.2</td>
+      <td>...</td>
+      <td>32</td>
+      <td>United Kingdom</td>
+      <td>19,680</td>
+      <td>11.1</td>
+      <td>39%</td>
+      <td>47 : 53</td>
+      <td>University of Cambridge</td>
+      <td>Business &amp; Management,General Engineering,Art,...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>7</td>
-      <td>Princeton University</td>
-      <td>92.4</td>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>8</td>
-      <td>University of California, Berkeley</td>
-      <td>92.1</td>
+      <th>2107</th>
+      <td>1000446</td>
+      <td>Reporter</td>
+      <td>Yaşar University</td>
+      <td>NaN</td>
+      <td>1000446</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>Turkey</td>
+      <td>6,847</td>
+      <td>13.0</td>
+      <td>2%</td>
+      <td>53 : 47</td>
+      <td>Yaşar University</td>
+      <td>Art, Performing Arts &amp; Design,Mechanical &amp; Aer...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>9</td>
-      <td>Yale University</td>
-      <td>91.4</td>
+      <th>2108</th>
+      <td>1000447</td>
+      <td>Reporter</td>
+      <td>Yenepoya University</td>
+      <td>NaN</td>
+      <td>1000447</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>India</td>
+      <td>3,104</td>
+      <td>6.1</td>
+      <td>0%</td>
+      <td>67 : 33</td>
+      <td>Yenepoya University</td>
+      <td>Medicine &amp; Dentistry,Biological Sciences,Other...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>10</td>
-      <td>Imperial College London</td>
-      <td>90.4</td>
+      <th>2109</th>
+      <td>1000448</td>
+      <td>Reporter</td>
+      <td>Yogyakarta State University</td>
+      <td>NaN</td>
+      <td>1000448</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>Indonesia</td>
+      <td>24,988</td>
+      <td>20.3</td>
+      <td>1%</td>
+      <td>72 : 28</td>
+      <td>Yogyakarta State University</td>
+      <td>Civil Engineering,Physics &amp; Astronomy,Educatio...</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2110</th>
+      <td>1000449</td>
+      <td>Reporter</td>
+      <td>York St John University</td>
+      <td>NaN</td>
+      <td>1000449</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>United Kingdom</td>
+      <td>6,030</td>
+      <td>18.0</td>
+      <td>8%</td>
+      <td>66 : 34</td>
+      <td>York St John University</td>
+      <td>Biological Sciences,General Engineering,Geogra...</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2111</th>
+      <td>1000450</td>
+      <td>Reporter</td>
+      <td>Ziauddin University</td>
+      <td>NaN</td>
+      <td>1000450</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>Pakistan</td>
+      <td>4,018</td>
+      <td>9.3</td>
+      <td>1%</td>
+      <td>60 : 40</td>
+      <td>Ziauddin University</td>
+      <td>Business &amp; Management,Biological Sciences,Medi...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
+<p>2112 rows × 24 columns</p>
 </div>
 </div>
 
@@ -15389,44 +15612,153 @@ We can import pandas by typing: import pandas as pd</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>rank_order</th>
       <th>rank</th>
       <th>name</th>
       <th>scores_overall</th>
+      <th>scores_overall_rank</th>
+      <th>scores_teaching</th>
+      <th>scores_teaching_rank</th>
+      <th>scores_research</th>
+      <th>scores_research_rank</th>
+      <th>scores_citations</th>
+      <th>...</th>
+      <th>scores_international_outlook_rank</th>
+      <th>location</th>
+      <th>stats_number_students</th>
+      <th>stats_student_staff_ratio</th>
+      <th>stats_pc_intl_students</th>
+      <th>stats_female_male_ratio</th>
+      <th>aliases</th>
+      <th>subjects_offered</th>
+      <th>closed</th>
+      <th>unaccredited</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>10</td>
       <td>1</td>
       <td>University of Oxford</td>
-      <td>96.4</td>
+      <td>95.7</td>
+      <td>10</td>
+      <td>91.0</td>
+      <td>5</td>
+      <td>99.6</td>
+      <td>1</td>
+      <td>98.0</td>
+      <td>...</td>
+      <td>26</td>
+      <td>United Kingdom</td>
+      <td>20,835</td>
+      <td>10.7</td>
+      <td>42%</td>
+      <td>47 : 53</td>
+      <td>University of Oxford</td>
+      <td>Accounting &amp; Finance,General Engineering,Commu...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>20</td>
+      <td>=2</td>
+      <td>California Institute of Technology</td>
+      <td>95.0</td>
+      <td>20</td>
+      <td>93.6</td>
       <td>2</td>
-      <td>Harvard University</td>
-      <td>95.2</td>
+      <td>96.9</td>
+      <td>4</td>
+      <td>97.8</td>
+      <td>...</td>
+      <td>167</td>
+      <td>United States</td>
+      <td>2,233</td>
+      <td>6.3</td>
+      <td>34%</td>
+      <td>36 : 64</td>
+      <td>California Institute of Technology caltech</td>
+      <td>Languages, Literature &amp; Linguistics,Economics ...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>30</td>
+      <td>=2</td>
+      <td>Harvard University</td>
+      <td>95.0</td>
+      <td>30</td>
+      <td>94.5</td>
+      <td>1</td>
+      <td>98.9</td>
       <td>3</td>
-      <td>University of Cambridge</td>
-      <td>94.8</td>
+      <td>99.2</td>
+      <td>...</td>
+      <td>209</td>
+      <td>United States</td>
+      <td>21,574</td>
+      <td>9.5</td>
+      <td>24%</td>
+      <td>50 : 50</td>
+      <td>Harvard University</td>
+      <td>Mathematics &amp; Statistics,Civil Engineering,Lan...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
+      <td>40</td>
+      <td>4</td>
       <td>Stanford University</td>
-      <td>94.8</td>
+      <td>94.9</td>
+      <td>40</td>
+      <td>92.3</td>
+      <td>3</td>
+      <td>96.8</td>
+      <td>5</td>
+      <td>99.9</td>
+      <td>...</td>
+      <td>211</td>
+      <td>United States</td>
+      <td>16,319</td>
+      <td>7.3</td>
+      <td>23%</td>
+      <td>46 : 54</td>
+      <td>Stanford University</td>
+      <td>Physics &amp; Astronomy,Computer Science,Politics ...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5</td>
-      <td>Massachusetts Institute of Technology</td>
-      <td>94.2</td>
+      <td>50</td>
+      <td>=5</td>
+      <td>University of Cambridge</td>
+      <td>94.6</td>
+      <td>50</td>
+      <td>90.9</td>
+      <td>6</td>
+      <td>99.5</td>
+      <td>2</td>
+      <td>96.2</td>
+      <td>...</td>
+      <td>32</td>
+      <td>United Kingdom</td>
+      <td>19,680</td>
+      <td>11.1</td>
+      <td>39%</td>
+      <td>47 : 53</td>
+      <td>University of Cambridge</td>
+      <td>Business &amp; Management,General Engineering,Art,...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
+<p>5 rows × 24 columns</p>
 </div>
 </div>
 
@@ -15478,7 +15810,7 @@ We can import pandas by typing: import pandas as pd</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(10 (0xa), 3 (0x3))</pre>
+<pre>(2112 (0x840), 24 (0x18))</pre>
 </div>
 
 </div>
@@ -15529,7 +15861,15 @@ We can import pandas by typing: import pandas as pd</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Index([&#39;rank&#39;, &#39;name&#39;, &#39;scores_overall&#39;], dtype=&#39;object&#39;)</pre>
+<pre>Index([&#39;rank_order&#39;, &#39;rank&#39;, &#39;name&#39;, &#39;scores_overall&#39;, &#39;scores_overall_rank&#39;,
+       &#39;scores_teaching&#39;, &#39;scores_teaching_rank&#39;, &#39;scores_research&#39;,
+       &#39;scores_research_rank&#39;, &#39;scores_citations&#39;, &#39;scores_citations_rank&#39;,
+       &#39;scores_industry_income&#39;, &#39;scores_industry_income_rank&#39;,
+       &#39;scores_international_outlook&#39;, &#39;scores_international_outlook_rank&#39;,
+       &#39;location&#39;, &#39;stats_number_students&#39;, &#39;stats_student_staff_ratio&#39;,
+       &#39;stats_pc_intl_students&#39;, &#39;stats_female_male_ratio&#39;, &#39;aliases&#39;,
+       &#39;subjects_offered&#39;, &#39;closed&#39;, &#39;unaccredited&#39;],
+      dtype=&#39;object&#39;)</pre>
 </div>
 
 </div>
@@ -15579,15 +15919,36 @@ We can import pandas by typing: import pandas as pd</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 10 entries, 0 to 9
-Data columns (total 3 columns):
- #   Column          Non-Null Count  Dtype  
----  ------          --------------  -----  
- 0   rank            10 non-null     int64  
- 1   name            10 non-null     object 
- 2   scores_overall  10 non-null     float64
-dtypes: float64(1), int64(1), object(1)
-memory usage: 368.0+ bytes
+RangeIndex: 2112 entries, 0 to 2111
+Data columns (total 24 columns):
+ #   Column                             Non-Null Count  Dtype  
+---  ------                             --------------  -----  
+ 0   rank_order                         2112 non-null   int64  
+ 1   rank                               2112 non-null   object 
+ 2   name                               2112 non-null   object 
+ 3   scores_overall                     1662 non-null   object 
+ 4   scores_overall_rank                2112 non-null   int64  
+ 5   scores_teaching                    1662 non-null   float64
+ 6   scores_teaching_rank               2112 non-null   int64  
+ 7   scores_research                    1662 non-null   float64
+ 8   scores_research_rank               2112 non-null   int64  
+ 9   scores_citations                   1662 non-null   float64
+ 10  scores_citations_rank              2112 non-null   int64  
+ 11  scores_industry_income             1662 non-null   float64
+ 12  scores_industry_income_rank        2112 non-null   int64  
+ 13  scores_international_outlook       1662 non-null   float64
+ 14  scores_international_outlook_rank  2112 non-null   int64  
+ 15  location                           2112 non-null   object 
+ 16  stats_number_students              2112 non-null   object 
+ 17  stats_student_staff_ratio          2112 non-null   float64
+ 18  stats_pc_intl_students             2112 non-null   object 
+ 19  stats_female_male_ratio            2033 non-null   object 
+ 20  aliases                            2112 non-null   object 
+ 21  subjects_offered                   2112 non-null   object 
+ 22  closed                             2112 non-null   bool   
+ 23  unaccredited                       2112 non-null   bool   
+dtypes: bool(2), float64(6), int64(7), object(9)
+memory usage: 367.2+ KB
 </pre>
 </div>
 </div>
@@ -15596,6 +15957,18 @@ memory usage: 368.0+ bytes
 
 </div>
 
+</div>
+<div id="cell-id=ed73302a" class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>If you see the 'rank' column, you will notice that it is of type 'object'. This means it has been interpreted as a string. This is also evident from the values you see in the dataframe, where you will notice rank has values like =2, =5 etc. So these can't be represented as integers. These denote universities which have the same rank. As a result, we will use the 'rank_order' column to rank the universities.</p>
+
+</div>
+</div>
+</div>
 </div>
 <div id="cell-id=eb826bb3" class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15608,7 +15981,7 @@ memory usage: 368.0+ bytes
 DataFrame.sort_values as described here: <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html</a></p>
 <p>In our case, we need to pass the following args:</p>
 <ul>
-<li>by = 'rank'</li>
+<li>by = 'rank_order'</li>
 <li>axis = 0 (denotes rows, because we want to get top-N rows)</li>
 </ul>
 <p>We will also use &quot;Slicing&quot; in Python to get the first-N values. For example, to get the first 10 elements in an array/list, you will use: arr[:10]</p>
@@ -15624,7 +15997,7 @@ DataFrame.sort_values as described here: <a href="https://pandas.pydata.org/docs
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_3_universities</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;rank&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_3_universities</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;rank_order&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15679,32 +16052,105 @@ DataFrame.sort_values as described here: <a href="https://pandas.pydata.org/docs
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>rank_order</th>
       <th>rank</th>
       <th>name</th>
       <th>scores_overall</th>
+      <th>scores_overall_rank</th>
+      <th>scores_teaching</th>
+      <th>scores_teaching_rank</th>
+      <th>scores_research</th>
+      <th>scores_research_rank</th>
+      <th>scores_citations</th>
+      <th>...</th>
+      <th>scores_international_outlook_rank</th>
+      <th>location</th>
+      <th>stats_number_students</th>
+      <th>stats_student_staff_ratio</th>
+      <th>stats_pc_intl_students</th>
+      <th>stats_female_male_ratio</th>
+      <th>aliases</th>
+      <th>subjects_offered</th>
+      <th>closed</th>
+      <th>unaccredited</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>10</td>
       <td>1</td>
       <td>University of Oxford</td>
-      <td>96.4</td>
+      <td>95.7</td>
+      <td>10</td>
+      <td>91.0</td>
+      <td>5</td>
+      <td>99.6</td>
+      <td>1</td>
+      <td>98.0</td>
+      <td>...</td>
+      <td>26</td>
+      <td>United Kingdom</td>
+      <td>20,835</td>
+      <td>10.7</td>
+      <td>42%</td>
+      <td>47 : 53</td>
+      <td>University of Oxford</td>
+      <td>Accounting &amp; Finance,General Engineering,Commu...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>20</td>
+      <td>=2</td>
+      <td>California Institute of Technology</td>
+      <td>95.0</td>
+      <td>20</td>
+      <td>93.6</td>
       <td>2</td>
-      <td>Harvard University</td>
-      <td>95.2</td>
+      <td>96.9</td>
+      <td>4</td>
+      <td>97.8</td>
+      <td>...</td>
+      <td>167</td>
+      <td>United States</td>
+      <td>2,233</td>
+      <td>6.3</td>
+      <td>34%</td>
+      <td>36 : 64</td>
+      <td>California Institute of Technology caltech</td>
+      <td>Languages, Literature &amp; Linguistics,Economics ...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>30</td>
+      <td>=2</td>
+      <td>Harvard University</td>
+      <td>95.0</td>
+      <td>30</td>
+      <td>94.5</td>
+      <td>1</td>
+      <td>98.9</td>
       <td>3</td>
-      <td>University of Cambridge</td>
-      <td>94.8</td>
+      <td>99.2</td>
+      <td>...</td>
+      <td>209</td>
+      <td>United States</td>
+      <td>21,574</td>
+      <td>9.5</td>
+      <td>24%</td>
+      <td>50 : 50</td>
+      <td>Harvard University</td>
+      <td>Mathematics &amp; Statistics,Civil Engineering,Lan...</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
+<p>3 rows × 24 columns</p>
 </div>
 </div>
 
@@ -15726,22 +16172,6 @@ DataFrame.sort_values as described here: <a href="https://pandas.pydata.org/docs
 </div>
 </div>
 </div>
-</div><div id="cell-id=08d2db8e" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
